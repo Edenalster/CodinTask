@@ -1,0 +1,95 @@
+/* Global styles */
+body {
+  background-color: #f3f4f6; /* Tailwind's bg-gray-100 */
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding-left: 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.navbar-icon {
+  height: 40px;
+  width: 40px;
+  color: #6366f1; /* Indigo-500 */
+}
+
+.navbar-title {
+  margin-left: 0.7rem;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+/* Container for main content */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 70px); /* account for navbar height */
+  text-align: center;
+}
+
+/* Header text */
+.header {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #111827;
+}
+
+/* Subheader text */
+.subheader {
+  font-size: 1rem;
+  color: #4b5563; /* text-gray-600 */
+  margin-top: 0.5rem;
+}
+
+/* Grid layout for lobby cards */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-top: 2rem;
+}
+
+/* Lobby card styling */
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.card-desc {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
