@@ -1,5 +1,5 @@
-// src/store/useCodeStore.ts
 import { create } from "zustand";
+import API from "../api/axios";
 
 interface CodeBlock {
   id: string;
@@ -17,14 +17,11 @@ export const useCodeStore = create<CodeStore>((set) => ({
   codeBlocks: [],
   fetchCodeBlocks: async () => {
     try {
-      const res = await fetch(
-        "https://codintask-production.up.railway.app/api/codeblocks"
-      );
-      const data = await res.json();
-      if (Array.isArray(data)) {
-        set({ codeBlocks: data });
+      const response = await API.get("/api/codeblocks");
+      if (Array.isArray(response.data)) {
+        set({ codeBlocks: response.data });
       } else {
-        console.error("Invalid data:", data);
+        console.error("Invalid response data:", response.data);
       }
     } catch (error) {
       console.error("Error fetching code blocks:", error);
