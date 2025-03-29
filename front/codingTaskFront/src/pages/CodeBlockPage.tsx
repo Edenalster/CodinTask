@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
 import io from "socket.io-client";
 import Editor from "@monaco-editor/react";
 import "./../styles/CodeBlockPage.css";
+import API from "../api/axios";
 
 // Define the structure of a code block
 interface CodeBlock {
@@ -32,9 +32,7 @@ const CodeBlockPage: React.FC = () => {
 
     const fetchCodeBlock = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/api/codeblocks/${id}`
-        );
+        const response = await API.get(`/api/codeblocks/${id}`);
         if (!mounted) return;
         setCodeBlock(response.data);
 
