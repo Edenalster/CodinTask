@@ -17,7 +17,9 @@ export const useCodeStore = create<CodeStore>((set) => ({
   codeBlocks: [],
   fetchCodeBlocks: async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/codeblocks");
+      const res = await fetch(
+        "https://codintask-production.up.railway.app/api/codeblocks"
+      );
       const data = await res.json();
       if (Array.isArray(data)) {
         set({ codeBlocks: data });
