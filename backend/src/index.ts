@@ -37,7 +37,7 @@ const globalConnectionLog: Record<
 > = {};
 
 io.on("connection", (socket) => {
-  console.log(`🔌 New socket connected: ${socket.id}`);
+  console.log(`New socket connected: ${socket.id}`);
 
   socket.on("code_update", ({ roomId, code }) => {
     io.to(roomId).emit("code_update", { code });
@@ -45,7 +45,7 @@ io.on("connection", (socket) => {
 
   socket.on("join_room", (data) => {
     const { roomId, initialCode } = data;
-    console.log(`👥 Socket ${socket.id} attempting to join room ${roomId}`);
+    console.log(`Socket ${socket.id} attempting to join room ${roomId}`);
 
     // Ensure room exists in global log
     if (!globalConnectionLog[roomId]) {
@@ -79,7 +79,7 @@ io.on("connection", (socket) => {
 
     // Prepare role assignment
     const role = isMentor ? "mentor" : "student";
-    console.log(`🏫 Assigning role to ${socket.id}: ${role}`);
+    console.log(`Assigning role to ${socket.id}: ${role}`);
 
     // Emit role assignment
     socket.emit("role_assignment", {
@@ -101,13 +101,13 @@ io.on("connection", (socket) => {
 
     // Log global connection state
     console.log(
-      "🌐 Global Connection Log:",
+      "Global Connection Log:",
       JSON.stringify(globalConnectionLog, null, 2)
     );
 
     // Cleanup on disconnect
     socket.on("disconnect", () => {
-      console.log(`❌ Socket ${socket.id} disconnected from room ${roomId}`);
+      console.log(`Socket ${socket.id} disconnected from room ${roomId}`);
 
       // Remove this connection from log
       if (globalConnectionLog[roomId]) {
@@ -148,5 +148,5 @@ export const connectDB = async () => {
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   connectDB();
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });

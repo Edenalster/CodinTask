@@ -74,7 +74,7 @@ const CodeBlockPage: React.FC = () => {
 
           // Receive real-time code updates from other students
           newSocket.on("code_update", (data: { code: string }) => {
-            console.log("📥 received code from socket", data.code);
+            console.log("received code from socket", data.code);
             setCode(data.code); // Always update code for non-mentor users
           });
 
@@ -93,7 +93,7 @@ const CodeBlockPage: React.FC = () => {
           });
         }
       } catch (error) {
-        console.error("❌ Error in fetchCodeBlock:", error);
+        console.error("Error in fetchCodeBlock:", error);
         navigate("/");
       }
     };
@@ -145,9 +145,8 @@ const CodeBlockPage: React.FC = () => {
           <h1 className="code-title">{codeBlock.name}</h1>
           <div className="code-role">
             <span>
-              {userRole === "mentor" ? "🏫 Mentor" : "👩‍💻 Student"} |{" "}
-              {studentCount} {studentCount === 1 ? "student" : "students"}{" "}
-              online
+              {userRole === "mentor" ? "Mentor" : "Student"} | {studentCount}{" "}
+              {studentCount === 1 ? "student" : "students"} online
             </span>
           </div>
         </div>

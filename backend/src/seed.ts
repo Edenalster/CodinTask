@@ -59,9 +59,9 @@ async function seed() {
   try {
     await CodeBlock.deleteMany(); // Clear old ones
     await CodeBlock.insertMany(seedCodeBlocks); // Add new
-    console.log("✅ Seeded successfully");
+    console.log("Seeded successfully");
   } catch (error) {
-    console.error("❌ Error seeding:", error);
+    console.error("Error seeding:", error);
   } finally {
     mongoose.disconnect();
   }
