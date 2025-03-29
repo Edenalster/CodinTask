@@ -38,7 +38,7 @@ const CodeBlockPage: React.FC = () => {
 
         // Create and connect socket
         if (!socket) {
-          newSocket = io("https://codintask-production.up.railway.app");
+          newSocket = io("https://codintask-production.up.railway.app/");
           setSocket(newSocket);
 
           // Join the correct room
